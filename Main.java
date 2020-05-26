@@ -3,16 +3,21 @@ import java.io.*;
 import java.text.DecimalFormat;
 import java.math.RoundingMode;
 import org.json.JSONObject;
+
+
 public class Main {
 
 	public static void main(String[] args) throws IOException 
 	{
 		double[] a = new double[10000];
-		JSONObject obj  = new JSONObject();
-		JSONObject obj1 = new JSONObject();
-		File f = new File("C:\\Users\\Boopalan\\Desktop\\Memory.txt");
+		JSONObject jsn  = new JSONObject();
+		JSONObject jsn1 = new JSONObject();
+		File f = new File("C:\\Users\\Boopalan\\Documents\\Memory.txt");
+		
+		
 		try (BufferedReader bf = new BufferedReader(new FileReader(f))) 
         {
+			
             String readLine;
             double temp;
             int line = 0;
@@ -29,11 +34,15 @@ public class Main {
                     str=str.trim();
                     temp=Integer.parseInt(str);
               
-                    a[i++]=temp/10000
+                    a[i++]=temp/10000;
                 }
                 line++;
             }
+			
+			
             String str1;
+			
+			
             for(int j=0;j<938;j++)
             {
             	str1 = String.format("%d",j);
@@ -46,11 +55,15 @@ public class Main {
             double average=sum/938;
             
             DecimalFormat df = new DecimalFormat("#.###");
+			
+			
             df.setRoundingMode(RoundingMode.CEILING);
-            obj.put("AverageMemory(MB)", df.format(average));
-            obj.put("values: ", obj1);
-            obj.put("MaximumMemory(MB)", df.format(max));
-            System.out.println(obj);
+            jsn.put("AverageMemory(MB)", df.format(average));
+            jsn.put("values: ", jsn1);
+            jsn.put("MaximumMemory(MB)", df.format(max));
+			
+			
+            System.out.println(jsn);
          }
  }
 }
