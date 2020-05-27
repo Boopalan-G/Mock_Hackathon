@@ -46,7 +46,7 @@ public class Main {
             for(int j=0;j<938;j++)
             {
             	str1 = String.format("%d",j);
-            	obj1.put(str1 + "s", a[j]);
+            	jsn1.put(str1 + "s", a[j]);
             	if(max<a[j])
             		max=a[j];
             	sum=sum+a[j];
